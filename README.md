@@ -1,1 +1,5 @@
 php-app-docker-config-sample
+
+dockerを使った開発環境のテンプレート（を構築する予定）
+フロントをvarnishにしてapache+phpとmysqlの構成にしたい。
+PHPStormまたはIntelliJIdeaでxdebugすることを想定。
