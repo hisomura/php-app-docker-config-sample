@@ -1,5 +1,10 @@
 <?php
 
-echo $_SERVER['REMOTE_ADDR'];
+$a = 1;
+$b = 2;
+$c = 3;
+
+echo "$a, $b, $c\n";
+
 
 

@@ -21,4 +21,4 @@ services:
     ports:
       - "80:80"
     volumes:
-      - './test:/var/www/html'
+      - '../public:/var/www/html'
