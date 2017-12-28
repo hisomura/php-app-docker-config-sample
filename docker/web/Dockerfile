@@ -7,4 +7,4 @@ RUN yes | pecl install xdebug \
         && echo "xdebug.remote_host=docker.for.win.localhost" >> /usr/local/etc/php/conf.d/xdebug.ini \
         && echo "xdebug.connect_back=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
         && echo "xdebug.idekey=IDEA" >> /usr/local/etc/php/conf.d/xdebug.ini
-
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf

@@ -16,8 +16,10 @@ services:
 
   web:
     build: ./web
+    environment:
+      APACHE_DOCUMENT_ROOT: '/var/www/project/public'
     volumes:
-      - '../public:/var/www/html'
+      - '..:/var/www/project'
 
   varnish:
     build: ./varnish
