@@ -16,6 +16,8 @@ RUN \
 
 WORKDIR /etc/varnish
 
+COPY default.vcl /etc/varnish/default.vcl
+
 EXPOSE 80
 
 CMD /usr/sbin/varnishd -F -f /etc/varnish/default.vcl
