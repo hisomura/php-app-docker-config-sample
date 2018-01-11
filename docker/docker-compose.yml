@@ -25,3 +25,8 @@ services:
     build: ./varnish
     ports:
       - '80:80'
+
+  hitch:
+    build: ./hitch
+    ports:
+      - '443:443'
