@@ -20,4 +20,4 @@ COPY default.vcl /etc/varnish/default.vcl
 
 EXPOSE 80
 
-CMD /usr/sbin/varnishd -F -f /etc/varnish/default.vcl
+CMD /usr/sbin/varnishd -F -f /etc/varnish/default.vcl -a :80 -a :6081,proxy

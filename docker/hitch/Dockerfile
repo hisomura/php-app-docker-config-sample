@@ -5,10 +5,10 @@ FROM ubuntu:16.04
 
 ARG ver=1.4.6
 ARG pem=test.example.com.pem
-ENV backend=web
-ENV backend_port=80
-ENV frontend=*
-ENV frontend_port=443
+ENV BACKEND=varnish
+ENV BACKEND_PORT=6081
+ENV FRONTEND=*
+ENV FRONTEND_PORT=443
 
 WORKDIR /tmp
 RUN \
@@ -29,4 +29,4 @@ RUN useradd -s /sbin/nologin hitch
 
 EXPOSE 443
 
-CMD /usr/local/sbin/hitch -u hitch --backend=[$backend]:$backend_port --frontend=[$frontend]:$frontend_port /hitch.pem
+CMD /usr/local/sbin/hitch -u hitch --backend=[$BACKEND]:$BACKEND_PORT --frontend=[$FRONTEND]:$FRONTEND_PORT /hitch.pem
