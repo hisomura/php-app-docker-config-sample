@@ -29,4 +29,4 @@ RUN useradd -s /sbin/nologin hitch
 
 EXPOSE 443
 
-CMD /usr/local/sbin/hitch -u hitch --backend=[$BACKEND]:$BACKEND_PORT --frontend=[$FRONTEND]:$FRONTEND_PORT /hitch.pem
+CMD /usr/local/sbin/hitch -u hitch --backend=[$BACKEND]:$BACKEND_PORT --frontend=[$FRONTEND]:$FRONTEND_PORT --write-proxy /hitch.pem
