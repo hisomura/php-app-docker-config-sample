@@ -2,7 +2,7 @@ version: "3.1"
 services:
 
   db:
-    image: mysql:5.6
+    image: mysql
     entrypoint: docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     environment:
       MYSQL_ROOT_PASSWORD: secret
@@ -10,7 +10,7 @@ services:
       MYSQL_USER: sample
       MYSQL_PASSWORD: sample
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - './data/db:/var/lib/mysql'
 
@@ -20,13 +20,19 @@ services:
       APACHE_DOCUMENT_ROOT: '/var/www/project/public'
     volumes:
       - '..:/var/www/project'
+    depends_on:
+      - db
 
   varnish:
     build: ./varnish
     ports:
-      - '80:80'
+      - 80:80
+    depends_on:
+      - web
 
   hitch:
     build: ./hitch
     ports:
-      - '443:443'
+      - 443:443
+    depends_on:
+      - varnish
